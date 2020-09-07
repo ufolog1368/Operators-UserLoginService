@@ -12,10 +12,7 @@ public class UserServiceTest {
         var userService = new UserService();
         User user = new User("igor", "1234", false, 3);
         String password = "1234";
-        boolean blockUser = user.isBlockUser();
-        int attemptsEntry = user.getAttemptsEntry();
 
-        boolean expected = true;
         boolean actual = userService.login(user, password);
         assertTrue(actual);
     }
@@ -25,17 +22,19 @@ public class UserServiceTest {
         var userService = new UserService();
         User user = new User("igor", "1234", false, 3);
         String password = "12345";
-        boolean blockUser = user.isBlockUser();
-        int attemptsEntry = user.getAttemptsEntry();
 
-        boolean expected = false;
         boolean actual = userService.login(user, password);
         assertFalse(actual);
     }
 
     @Test
     public void dropAttemptEntry() {
+        var user = new User("igor", "1234", false, 3);
+        user.setAttemptsEntry(3);
+        int expected = 3;
+        int actual = user.getAttemptsEntry();
 
+        assertEquals(expected, actual);
     }
 
     @Test
