@@ -11,6 +11,13 @@ public class User {
     public User() {
     }
 
+    public User(String login, String password, boolean isBlockUser, int attemptsEntry) {
+        this.login = login;
+        this.password = password;
+        this.isBlockUser = isBlockUser;
+        this.attemptsEntry = attemptsEntry;
+    }
+
     public String getLogin() {
         return login;
     }
