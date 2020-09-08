@@ -3,7 +3,7 @@ package by.jijs4.komarov.bean;
 import java.util.Objects;
 
 public class User {
-    private String login;
+    private String login = "igor";
     private String password;
     private boolean isBlockUser;
     private int attemptsEntry;
